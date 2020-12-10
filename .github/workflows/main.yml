@@ -7,16 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: add-new-issues-to-repository-based-project-column
-      uses: docker://takanabe/github-actions-automate-projects:v0.0.1
-      if: github.event_name == 'issues' && github.event.action == 'opened'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_PROJECT_URL: https://github.com/shrikantgond/git_projectDemo/projects/1
-        GITHUB_PROJECT_COLUMN_NAME: To do
-    - name: add-new-prs-to-repository-based-project-column
-      uses: docker://takanabe/github-actions-automate-projects:v0.0.1
-      if: github.event_name == 'pull_request'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_PROJECT_URL: https://github.com/shrikantgond/git_projectDemo/projects/1
-        GITHUB_PROJECT_COLUMN_NAME: In progress
+      uses: yuta1024/cards-moving-automation@v1
+      with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          project: 'My_sample_project'
+          from_column: 'To do'
+          to_column: 'In progress'
