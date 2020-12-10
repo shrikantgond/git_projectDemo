@@ -9,12 +9,12 @@ jobs:
     steps:
     - name: add-new-issues-to-repository-based-project-column
       uses: docker://takanabe/github-actions-automate-projects:v0.0.1
-      if: github.event_name == 'issues' && github.event.action == 'opened'
+      if: github.event_name == 'issues'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_PROJECT_URL: https://github.com/shrikantgond/git_projectDemo/projects/1
         GITHUB_PROJECT_COLUMN_NAME: To do
-    - name: add-new-prs-to-repository-based-project-column
+    - name: move-inprogress-column
       uses: yuta1024/cards-moving-automation@v1
       if: github.event_name == 'issues' && github.event.action == 'added_to_project'
       with:
