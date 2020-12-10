@@ -1,9 +1,11 @@
 # This is a basic workflow to help you get started with Actions
+name: 'Move expired cards'
+on:
+  schedule:
+  - cron: "0 0 * * *"
 
-name: Add a new GitHub Project card linked to a GitHub issue to the specified project column
-on: [issues, pull_request]
 jobs:
-  github-actions-automate-projects:
+  automation:
     runs-on: ubuntu-latest
     steps:
     - name: add-new-issues-to-repository-based-project-column
