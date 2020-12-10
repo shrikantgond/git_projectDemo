@@ -17,8 +17,8 @@ jobs:
     - name: add-new-prs-to-repository-based-project-column
       uses: yuta1024/cards-moving-automation@v1
       if: github.event_name == 'issues' && github.event.action == 'added_to_project'
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          project: 'My_sample_project'
-          from_column: 'To do'
-          to_column: 'In progress'
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        project: 'My_sample_project'
+        from_column: 'To do'
+        to_column: 'In progress'
