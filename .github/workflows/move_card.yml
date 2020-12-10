@@ -20,5 +20,5 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         project: 'My_sample_project'
-        from_column: 'To do'
+        from_column: To do
         to_column: 'In progress'
